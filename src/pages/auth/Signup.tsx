@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { AxiosError, isAxiosError } from "axios";
+import {  isAxiosError } from "axios";
 import axiosInstance, { ApiResponse } from "@/api/axiosInstance";
 import { useNavigate } from "react-router-dom";
-import { ApiResponseCreateLink } from "@/Types";
 import { Link } from "react-router-dom";
 
 const Signup: React.FC = () => {
@@ -33,7 +32,7 @@ const Signup: React.FC = () => {
     setError(""); // Reset error message
 
     try {
-      const { data } = await axiosInstance.post<ApiResponse<any>>(
+      const { data } = await axiosInstance.post<ApiResponse<unknown>>(
         "/v1/auth/user/create",
         payload
       );
@@ -43,7 +42,7 @@ const Signup: React.FC = () => {
       }
       navigate("/dashboard"); // Navigate to a different page after successful login
       console.log("Signup Success:", data);
-    } catch (error: AxiosError | ApiResponse<ApiResponseCreateLink> | any) {
+    } catch (error: unknown) {
       let message =
         error.message || "An error occurred during signup. Please try again.";
       if (isAxiosError(error)) {

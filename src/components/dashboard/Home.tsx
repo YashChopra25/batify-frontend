@@ -55,6 +55,7 @@ const Home = () => {
         setBrowser(data.browser || []);
         setOs(data.os || []);
       } catch (err) {
+        console.error(err)
         ToastFn(
           "error",
           "Error",

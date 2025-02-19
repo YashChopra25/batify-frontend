@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AxiosError, isAxiosError } from "axios";
+import { isAxiosError } from "axios";
 import axiosInstance, { ApiResponse } from "@/api/axiosInstance";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     setError(""); // Reset error message
 
     try {
-      const { data } = await axiosInstance.post<ApiResponse<any>>(
+      const { data } = await axiosInstance.post<ApiResponse<unknown>>(
         "/v1/auth/user/login", // Assuming login endpoint is '/v1/auth/user/login'
         payload
       );
@@ -43,7 +43,7 @@ const Login: React.FC = () => {
       // Store token in localStorage (or handle it accordingly)
       navigate("/dashboard"); // Navigate to a different page after successful login
       console.log("Login Success:", data);
-    } catch (error: AxiosError | ApiResponse<any> | any) {
+    } catch (error: unknown | ApiResponse<unknown> | unknown) {
       let message =
         error.message || "An error occurred during login. Please try again.";
 

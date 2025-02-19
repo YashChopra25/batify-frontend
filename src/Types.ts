@@ -1,10 +1,10 @@
 export interface ApiResponseCreateLink {
-    id: Number,
-    ownerId?: Number,
-    longURL: String,
-    ShortURL: String,
-    createdAt: String,
-    updatedAt: String
+    id: number,
+    ownerId?: number,
+    longURL: string,
+    ShortURL: string,
+    createdAt: string,
+    updatedAt: string
 }
 export interface NavigationTypes {
     handlerClick: (query: string) => void

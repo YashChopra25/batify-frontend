@@ -2,7 +2,7 @@ import Home from "@/components/dashboard/Home";
 import Profile from "@/components/dashboard/Profile";
 import Setting from "@/components/dashboard/Setting";
 import TableComponent from "@/components/dashboard/TableComponent";
-import { Calendar, HomeIcon, User, Settings, Link2 } from "lucide-react";
+import { Calendar, HomeIcon, User, Settings} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const items = [

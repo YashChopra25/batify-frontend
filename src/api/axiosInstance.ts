@@ -28,7 +28,7 @@ axiosInstance.interceptors.request.use((config) => {
 
 // Response Interceptor
 axiosInstance.interceptors.response.use(
-    (response: AxiosResponse<ApiResponse<any>>) => {
+    (response: AxiosResponse<ApiResponse<unknown>>) => {
         return response;
     },
     (error) => {

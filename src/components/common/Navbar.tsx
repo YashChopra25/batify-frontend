@@ -1,5 +1,4 @@
 import { useAppSelector } from "@/store/auth.store";
-import { GetToken } from "@/utils/GetToken";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {

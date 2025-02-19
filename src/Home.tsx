@@ -1,4 +1,4 @@
-import { WavyBackground } from "@/components/ui/wavy-background";
+// import { WavyBackground } from "@/components/ui/wavy-background";
 
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import Navbar from "@/components/common/Navbar";

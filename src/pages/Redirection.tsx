@@ -28,6 +28,7 @@ const Redirection = () => {
       ToastFn("error", "Error", error.response?.data.message);
       navigate("/");
     } finally {
+      setLoading(false);
     }
   };
 
@@ -36,7 +37,9 @@ const Redirection = () => {
       fetchRecords();
     }
   }, [shortLink]); // Dependency is shortLink, not params
-
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div>
       <h1>Redirecting...</h1>

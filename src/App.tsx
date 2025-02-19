@@ -21,7 +21,7 @@ const App = () => {
     if (token && !user && !isLoading) {
       dispatch(verifyUser());
     }
-  }, [token, isLoading, user]);
+  }, [token, isLoading, user,dispatch]);
   return (
     <BrowserRouter>
       <Routes>

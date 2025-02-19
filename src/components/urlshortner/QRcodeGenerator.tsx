@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { AxiosError, isAxiosError } from "axios";
+import {  isAxiosError } from "axios";
 import axiosInstance, { ApiResponse } from "@/api/axiosInstance";
 import { ApiResponseCreateLink } from "@/Types";
 import ToastFn from "../Toaster";
@@ -96,7 +96,7 @@ const QRcodeGenerator = () => {
         data.data.ShortURL
       }`;
       onDataChange(shortURl as string);
-    } catch (error: AxiosError | ApiResponse<ApiResponseCreateLink> | any) {
+    } catch (error: unknown | ApiResponse<ApiResponseCreateLink> | unknown) {
       if (isAxiosError(error)) {
         ToastFn(
           "error",

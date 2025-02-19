@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GetToken } from "@/utils/GetToken";
+
 import { useAppDispatch, useAppSelector } from "@/store/auth.store";
-import { verifyUser } from "@/slices/auth.slice";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
