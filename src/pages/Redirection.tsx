@@ -22,10 +22,14 @@ const Redirection = () => {
     } catch (error) {
       console.log(error);
       if (isAxiosError(error)) {
-        ToastFn("error", "Error", error.message || "Something went wrong");
+        ToastFn(
+          "error",
+          "Error",
+          error.response?.data.message || "Something went wrong"
+        );
         return;
       }
-      ToastFn("error", "Error", error.response?.data.message);
+      ToastFn("error", "Error", "Something went wrong");
       navigate("/");
     } finally {
       setLoading(false);

@@ -89,7 +89,7 @@ const Profile = () => {
         ToastFn("error", "Profile", error.response?.data.message);
         return;
       }
-      ToastFn("error", "Profile", error?.message || "Something went wrong");
+      ToastFn("error", "Profile","Something went wrong");
     }
   };
   return (

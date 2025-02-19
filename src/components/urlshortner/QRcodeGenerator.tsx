@@ -104,7 +104,7 @@ const QRcodeGenerator = () => {
           error.response?.data.message || "Something went wrong"
         );
       }
-      ToastFn("error", "Error", error.message || "Something went wrong");
+      ToastFn("error", "Error", "Something went wrong");
     } finally {
       setIsLoading(false);
     }

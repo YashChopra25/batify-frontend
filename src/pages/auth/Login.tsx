@@ -45,7 +45,7 @@ const Login: React.FC = () => {
       console.log("Login Success:", data);
     } catch (error: unknown | ApiResponse<unknown> | unknown) {
       let message =
-        error.message || "An error occurred during login. Please try again.";
+         "An error occurred during login. Please try again.";
 
       if (isAxiosError(error)) {
         message = error.response?.data.message;

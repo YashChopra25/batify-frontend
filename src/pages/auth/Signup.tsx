@@ -43,8 +43,7 @@ const Signup: React.FC = () => {
       navigate("/dashboard"); // Navigate to a different page after successful login
       console.log("Signup Success:", data);
     } catch (error: unknown) {
-      let message =
-        error.message || "An error occurred during signup. Please try again.";
+      let message ="An error occurred during signup. Please try again.";
       if (isAxiosError(error)) {
         message = error.response?.data.message;
       }
