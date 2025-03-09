@@ -41,7 +41,7 @@ const DashboardHome = () => {
   const handleTabClick = async (query: string) => {
     try {
       if (query === "logout") {
-        const { data } = await axiosInstance.get("/v1/auth/user/logout");
+        const { data } = await axiosInstance.get("/api/v1/auth/user/logout");
         if (!data.success) {
           ToastFn("error", "Error", data.message);
           return;

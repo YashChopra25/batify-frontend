@@ -3,35 +3,37 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { GetToken } from "@/utils/GetToken";
 
 import { useAppDispatch, useAppSelector } from "@/store/auth.store";
+import { verifyUser } from "@/slices/auth.slice";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const token = GetToken();
-  const user = useAppSelector((state) => state.auth.user);
-  const isLoading = useAppSelector((state) => state.auth.isLoading);
+  const { user, isLoading } = useAppSelector((state) => state.auth);
+
   useEffect(() => {
-    console.log(pathname, token, user);
+    if (!token || !user) {
+      dispatch(verifyUser());
+    }
+  }, [token, user, dispatch]);
 
-    const redirection = () => {
-      if (pathname === "/dashboard" && (!token || !user || !user.name)) {
-        navigate("/auth/login");
-      }
+  useEffect(() => {
+    // Wait until loading is finished before making navigation decisions
+    if (isLoading) return;
 
-      if (
-        (pathname === "/auth/login" || pathname === "/auth/signup") &&
-        token &&
-        user
-      ) {
-        navigate("/dashboard");
-      }
-    };
+    if (pathname === "/dashboard" && (!token || !user?.name)) {
+      navigate("/auth/login", { replace: true }); // `replace: true` prevents flickering
+    }
 
-    if (!isLoading) redirection();
-
-   
-  }, [pathname, token, navigate, isLoading, user, dispatch]);
+    if (
+      (pathname === "/auth/login" || pathname === "/auth/signup") &&
+      token &&
+      user
+    ) {
+      navigate("/dashboard", { replace: true });
+    }
+  }, [pathname, token, user, isLoading, navigate]);
 
   if (isLoading)
     return (
@@ -39,7 +41,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
         Loading...
       </div>
     );
-  // Render children if no redirection happened
+
   return children;
 };
 

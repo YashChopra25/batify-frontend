@@ -79,7 +79,7 @@ const Profile = () => {
         success: boolean;
         data: User;
         message: string;
-      }>("/v1/auth/user/update", userfields);
+      }>("/api/v1/auth/user/update", userfields);
       console.log(data);
       ToastFn("success", "Profile", data.message);
       dispatch(login(data));

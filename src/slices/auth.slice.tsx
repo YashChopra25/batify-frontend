@@ -20,7 +20,7 @@ interface AuthState {
 export const verifyUser = createAsyncThunk<User>(
   "auth/verifyUser",
   async () => {
-    const response = await axiosInstance.get("/v1/auth/user/verify");
+    const response = await axiosInstance.get("/api/v1/auth/user/verify");
     return response.data.data;
   }
 );

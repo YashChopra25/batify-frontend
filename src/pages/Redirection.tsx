@@ -11,14 +11,14 @@ const Redirection = () => {
   const fetchRecords = async () => {
     try {
       setLoading(true);
-      const { data } = await axiosInstance.get(`/v1/urls/${shortLink}`);
+      const { data } = await axiosInstance.get(`/api/v1/urls/${shortLink}`);
       if (!data.success) {
         navigate("/");
         ToastFn("error", "Error", data.message);
         return;
       }
       console.log(data);
-      window.location.replace(data?.redirectOn);
+      window.location.replace(data?.redirectOn); 
     } catch (error) {
       console.log(error);
       if (isAxiosError(error)) {

@@ -84,7 +84,7 @@ const QRcodeGenerator = () => {
       setIsLoading(true);
       const { data } = await axiosInstance.post<
         ApiResponse<ApiResponseCreateLink>
-      >("/v1/urls/create", {
+      >("/api/v1/urls/create", {
         longUrl: inputValue,
         isQR: true,
       });

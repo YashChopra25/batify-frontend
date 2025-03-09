@@ -19,7 +19,7 @@ const LinkGenerator = () => {
     try {
       const { data: responseData } = await axiosInstance.post<
         ApiResponse<ApiResponseCreateLink>
-      >("/v1/urls/create", {
+      >("/api/v1/urls/create", {
         longUrl: inputValue,
       });
       if (!responseData.success) {

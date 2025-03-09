@@ -33,7 +33,7 @@ const Signup: React.FC = () => {
 
     try {
       const { data } = await axiosInstance.post<ApiResponse<unknown>>(
-        "/v1/auth/user/create",
+        "/api/v1/auth/user/create",
         payload
       );
       if (!data.success) {

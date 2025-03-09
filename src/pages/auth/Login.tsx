@@ -31,7 +31,7 @@ const Login: React.FC = () => {
 
     try {
       const { data } = await axiosInstance.post<ApiResponse<unknown>>(
-        "/v1/auth/user/login", // Assuming login endpoint is '/v1/auth/user/login'
+        "/api/v1/auth/user/login", // Assuming login endpoint is '/api/v1/auth/user/login'
         payload
       );
 

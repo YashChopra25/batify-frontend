@@ -48,7 +48,7 @@ const Home = () => {
   useEffect(() => {
     const fetchAnaytics = async () => {
       try {
-        const { data } = await axiosInstance.get("/v1/analytics/fetch");
+        const { data } = await axiosInstance.get("/api/v1/analytics/fetch");
         console.log(data);
         setTotalVistes(data.totalVisits || 0);
         setMonthAnalytics(data.monthAnalytics || []);
@@ -119,7 +119,7 @@ const Home = () => {
         <Card className="bg-dark-bg-card border-[#44485e] overflow-hidden col-span-1 ">
           <CardHeader className="border-b border-[#44485e]">
             <CardTitle className="text-[#cfcde4] flex justify-between items-center">
-              <span>Total Visits</span>
+              <span>Total Visits/Clicks</span>
             </CardTitle>
           </CardHeader>
           <div className=" px-2 py-2 min-h-[182px] max-h-[182px] text-[#cfcde4] text-7xl font-semibold flex justify-center items-center gap-2">
